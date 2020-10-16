@@ -16,10 +16,12 @@ class UsuarioTableCreate extends Migration
       Schema::create('usuario', function (Blueprint $table) {
         $table->bigIncrements('idUsuario');
         $table->string('nome');
-        $table->string('email');
-        $table->string('telefone');
+        $table->string('email')->nullable();
+        $table->string('telefone')->nullable();
         $table->string('usuario');
         $table->string('senha');
+        $table->timestamps();
+
      });
 
     }
@@ -31,6 +33,6 @@ class UsuarioTableCreate extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('users');
+      Schema::dropIfExists('usuario');
     }
 }

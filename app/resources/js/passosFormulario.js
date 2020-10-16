@@ -4,6 +4,15 @@ $(document).ready(function() {
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
 
+    var step = $("[name='_step']").val();
+    console.log(step);
+    if (step != "email" && step != "nome" && step != "telefone" ) {
+      $("#firstStep").click();
+      $("#secondStep").click();
+    }
+
+
+
     $(".next").click(function() {
 
         current_fs = $(this).parent();

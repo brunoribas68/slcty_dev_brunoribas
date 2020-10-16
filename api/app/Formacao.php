@@ -16,21 +16,21 @@ class Formacao extends Model
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'formacao';
 
     /**
      * The primary key for the model.
-     * 
+     *
      * @var string
      */
     protected $primaryKey = 'idFormacao';
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -38,7 +38,7 @@ class Formacao extends Model
     /**
      * @var array
      */
-    protected $fillable = ['instituicao', 'idUsuario', 'created_at', 'updated_at'];
+    protected $fillable = ['formacao', 'idUsuario', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

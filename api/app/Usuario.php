@@ -1,10 +1,10 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Validator;
+
 
 /**
  * @property integer $idUsuario
@@ -49,29 +49,37 @@ class Usuario extends Model
      */
     public function experiencias()
     {
-        return $this->hasMany('App\Experiencium', 'idUsuario', 'idUsuario');
+        return $this->hasMany('App\Experiencia', 'idUsuario', 'idUsuario');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function formacaos()
+    public function formacoes()
     {
         return $this->hasMany('App\Formacao', 'idUsuario', 'idUsuario');
     }
 
-
-    public static function validate($request){
-      return  Validator::make($request->all(), [
-          'nome' => 'required|max:255',
-          'senha ' => 'required|max:255|confirmed',
-          'email' => [Rule::requiredIf(function () use ($request) {
-              return is_null($request->telefone);
+  public static function validate($request){
+     return  Validator::make($request->all(), [
+        'senha' => [Rule::requiredIf(function () use ($request) {
+            if ($request->senha == "*********") {
+              return false;
+            }
+          }),'confirmed'],
+          'senha_confirmation' => [Rule::requiredIf(function () use ($request) {
+              if ($request->senha == "*********") {
+                return false;
+              }
+            })],
+        'nome' => 'required|max:255',
+        'email' => [Rule::requiredIf(function () use ($request) {
+            return is_null($request->telefone);
           }),'email:rfc,dns'],
-          'telefone' => Rule::requiredIf(function () use ($request) {
-              return is_null($request->email);
-          }),
-          'usuario' => 'required|max:255',
-        ]);
+        'telefone' => Rule::requiredIf(function () use ($request) {
+          return is_null($request->email);
+        }),
+        'usuario' => 'required|max:255'
+      ]);
     }
 }

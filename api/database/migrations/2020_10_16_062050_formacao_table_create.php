@@ -15,7 +15,7 @@ class FormacaoTableCreate extends Migration
     {
       Schema::create('formacao', function (Blueprint $table) {
         $table->bigIncrements('idFormacao');
-        $table->longText('instituicao');
+        $table->longText('formacao');
         $table->unsignedBigInteger('idUsuario');
         $table->foreign('idUsuario')->references('idUsuario')->on('usuario');
         $table->timestamps();

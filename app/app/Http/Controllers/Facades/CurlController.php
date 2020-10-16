@@ -27,4 +27,23 @@ class CurlController extends Controller
     $err = curl_error($soap_do);
     return $err ? $err : $result;
   }
+
+  public static function consultaGET($url){
+  ini_set('max_execution_time', 999999999);
+  set_time_limit(999999999);
+  $headers = array(
+    "GET  HTTP/1.1",
+    "Content-type: application/json; charset=\"utf-8\""
+  );
+  $soap_do = curl_init();
+  curl_setopt($soap_do, CURLOPT_URL, $url );
+  curl_setopt($soap_do, CURLOPT_RETURNTRANSFER, true );
+  curl_setopt($soap_do, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($soap_do, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($soap_do, CURLOPT_HTTPHEADER,   $headers);
+  $result = curl_exec($soap_do);
+  $err = curl_error($soap_do);
+  return $err ? $err : $result;
+}
+
 }

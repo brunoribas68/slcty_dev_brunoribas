@@ -152,21 +152,22 @@ select.list-dt:focus {
 }
 
 #progressbar #pessoal:before {
-    font-family: FontAwesome;
-    content: "\f023"
-}
-
-#progressbar #profissional:before {
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
     content: "\f007"
 }
 
-#progressbar #conta:before {
-    font-family: FontAwesome;
-    content: "\f09d"
+#progressbar #profissional:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    content: "\f0b1"
 }
 
-
+#progressbar #conta:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    content: "\f09d"
+}
 
 #progressbar li:before {
     width: 50px;
