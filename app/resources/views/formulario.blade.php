@@ -43,18 +43,20 @@ if (isset($erros)) {
                                                 <label for="nome">Nome</label>
                                                 <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nome" >
                                                 @if (isset($erro) && $erro["nome"])
-                                                  <small id="nomeErr" class="lert alert-danger" >{{$erro["nome"]}}</small>
+                                                  <small id="nomeErr" class="alert alert-danger" >{{$erro["nome"]}}</small>
                                                 @endif
                                             </div>
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <label for="email">Email</label>
                                                 <input type="email" class="form-control" id="email"  name="email" aria-describedby="email">
-                                                <small id="emailErr" class="lert alert-danger" style="display:none"></small>
-                                            </div>
+                                                @if (isset($erro) && $erro["email"])
+                                                  <small id="emailErr" class="alert alert-danger" style="display:none"></small>
+                                                @endif
+                                            </div> --}}
                                             <div class="form-group">
                                                 <label for="telefone">Telefone</label>
                                                 <input type="text" class="form-control" id="telefone" name="telefone" aria-describedby="telefone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
-                                                <small id="telefoneErr" class="lert alert-danger" style="display:none"></small>
+                                                <small id="telefoneErr" class="alert alert-danger" style="display:none"></small>
                                             </div>
                                         </div>
                                         <input type="button" name="next" class="next action-button" value="Próximo" />
@@ -69,7 +71,7 @@ if (isset($erros)) {
                                                 <input type="text" class="form-control" id="experiencia[]" name="experiencia[]" aria-describedby="experiencia">
                                                 <small id="telefoneErr" class="lert alert-danger" style="display:none"></small>
                                             </div>
-                                            <a href="#" id="maisExperiencia">
+                                            <a href="" id="maisExperiencia">
                                               + Mais Experiências
                                             </a>
                                             <br>
@@ -77,7 +79,7 @@ if (isset($erros)) {
                                               <label for="formacao">Formação</label>
                                                 <input type="text" class="form-control" id="formacao[]" name="formacao[]" aria-describedby="experiencia">
                                             </div>
-                                            <a href="#" id="maisFormacao">
+                                            <a href="" id="maisFormacao">
                                               + Mais Formação
                                             </a>
                                         </div>
@@ -101,7 +103,7 @@ if (isset($erros)) {
                                             </div>
                                         </div>
                                         <input type="button" name="previous"  id="previousFinal" class="previous action-button-previous" value="Anterior" />
-                                        <input type="submit" name="previous" class="action-button" value="Enviar" id="enviar" value="Enviar"/>
+                                        <input type="submit"  class="action-button" value="Enviar" id="enviar" value="Enviar"/>
 
                                     </fieldset>
                                     <fieldset>

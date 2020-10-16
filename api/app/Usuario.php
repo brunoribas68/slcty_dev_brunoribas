@@ -62,9 +62,9 @@ class Usuario extends Model
 
 
     public static function validate($request){
-
       return  Validator::make($request->all(), [
           'nome' => 'required|max:255',
+          'senha ' => 'required|max:255|confirmed',
           'email' => [Rule::requiredIf(function () use ($request) {
               return is_null($request->telefone);
           }),'email:rfc,dns'],
@@ -72,7 +72,6 @@ class Usuario extends Model
               return is_null($request->email);
           }),
           'usuario' => 'required|max:255',
-          'senha ' => 'required|max:255|confirmed',
         ]);
     }
 }

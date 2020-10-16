@@ -42,12 +42,7 @@ class CadastroController extends Controller
       }
 
       $usuario = Usuario::find($request["idUsuario"])->update($request->all());
-      return ["err" => 0 => "data" => "Atualizado com sucesso!"];
+      return ["err" => 0,  "data" => "Atualizado com sucesso!"];
     }
-
-
-    }
-
-
 
 }
