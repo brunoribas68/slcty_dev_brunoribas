@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
+use Validator;
 
 /**
  * @property integer $idUsuario
@@ -60,9 +61,9 @@ class Usuario extends Model
     }
 
 
-    public function validate($request){
+    public static function validate($request){
 
-        Validator::make($request->all(), [
+      return  Validator::make($request->all(), [
           'nome' => 'required|max:255',
           'email' => [Rule::requiredIf(function () use ($request) {
               return is_null($request->telefone);

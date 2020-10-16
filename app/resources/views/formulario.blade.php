@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+@php
+if (isset($erros)) {
+  dd($erros);
+}
+@endphp
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,9 +41,10 @@
                                             <h2 class="fs-title">Dados Pessoais</h2>
                                             <div class="form-group">
                                                 <label for="nome">Nome</label>
-                                                <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nome" required>
-                                                <small id="nomeErr" class="lert alert-danger" style="display:none"></small>
-
+                                                <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nome" >
+                                                @if (isset($erro) && $erro["nome"])
+                                                  <small id="nomeErr" class="lert alert-danger" >{{$erro["nome"]}}</small>
+                                                @endif
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email</label>
@@ -84,15 +89,15 @@
                                             <h2 class="fs-title">Dados Pessoais</h2>
                                             <div class="form-group">
                                                 <label for="usuario">Usuario</label>
-                                                <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="usuario" required>
+                                                <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="usuario" >
                                             </div>
                                             <div class="form-group">
                                                 <label for="senhas">Senha</label>
-                                                <input type="password" class="form-control" id="senha" name="senha" aria-describedby="senha" required>
+                                                <input type="password" class="form-control" id="senha" name="senha" aria-describedby="senha" >
                                             </div>
                                             <div class="form-group">
                                                 <label for="telefone">Confirmar Senha</label>
-                                                <input type="password" class="form-control" id="senha_confirmation" name="senha_confirmation" aria-describedby="senha_confirmation" required>
+                                                <input type="password" class="form-control" id="senha_confirmation" name="senha_confirmation" aria-describedby="senha_confirmation" >
                                             </div>
                                         </div>
                                         <input type="button" name="previous"  id="previousFinal" class="previous action-button-previous" value="Anterior" />
@@ -121,7 +126,6 @@
 <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
 <script src="resources/js/passosFormulario.js" charset="utf-8"></script>
 <script src="resources/js/multiplicarCampos.js" charset="utf-8"></script>
-<script src="resources/js/validacao.js" charset="utf-8"></script>
 <script src="resources/js/mascara.js" charset="utf-8"></script>
 
 </html>

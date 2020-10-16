@@ -7,22 +7,13 @@ use Illuminate\Http\Request;
 
 class CurlController extends Controller
 {
-  <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-class CurlController extends Controller
-{
-
-  public static function consultaPOST($url, $json,$token,$xAuth = ''){
+  public static function consultaPOST($url, $json){
     ini_set('max_execution_time', 999999999);
     set_time_limit(999999999);
     $headers = array(
       "POST  HTTP/1.1",
-      "Content-type: application/json; charset=\"utf-8\"",
+      "Content-type: application/json; charset=\"utf-8\""
     );
     $soap_do = curl_init();
     curl_setopt($soap_do, CURLOPT_URL, $url );
